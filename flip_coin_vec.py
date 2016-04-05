@@ -1,9 +1,10 @@
-
+import numpy as np
 
 def flip(N):
     """
     Simulates tossing a coin N times, and writes out the number of tails.
     """
-    answer = numpy.random.randint(2, size=N)
-    tails = numpy.where(answer>= 0.5 , 0, 1)
-    return len(tails)
+    answer = np.random.randint(2, size=N)
+    tails = np.where(answer > 0, 0, 1)
+    return np.sum(tails)
+print flip(100)
