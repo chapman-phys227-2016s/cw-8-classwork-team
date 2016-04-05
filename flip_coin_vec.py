@@ -6,4 +6,4 @@ def flip(N):
     """
     answer = numpy.random.randint(2, size=N)
     tails = numpy.where(answer>= 0.5 , 0, 1)
-    return tails
+    return len(tails)
