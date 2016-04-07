@@ -14,25 +14,26 @@ class Particle:
     Defines particle objects that are seeded at initialization
 and move around accordingly
     """
-    def __init__(self, seed = int(time.time()*10000), x= 0, y = 0):
+    def __init__(self, seed = int(time.time()*10 % 10000), x= 0, y = 0):
+        print seed
         self.x = x
         self.y = y
-        self.RNG = np.random.seed(seed)
+        self.RNG = np.random.RandomState(seed)
 
     def move(self, step_size = 1):
         """
         Moves in a random (seeded) direction with a distance of
         an optional stepsize
         """
-        switch = RNG.randint(1, 5)
+        switch = self.RNG.randint(1, 5)
         if(switch == 1):
-            y += step_size #Up
+            self.y += step_size #Up
         elif(switch == 2):
-            x += step_size #Right
+            self.x += step_size #Right
         elif(switch == 3):
-            y -= step_size #Down
+            self.y -= step_size #Down
         else:
-            x -= step_size #left
+            self.x -= step_size #left
 
 class test_Particle(TestCase):
     """
@@ -41,7 +42,7 @@ class test_Particle(TestCase):
     """
 
     
-    def test_confined_movement():
+    def test_confined_movement(self):
         """
         Given n number of steps, the particles
         should not deviate n units from the origin
@@ -57,7 +58,7 @@ class test_Particle(TestCase):
                 testReturn = False
         assert(testReturn)
 
-    def test_same_seed_movement(numberOfSteps = 100000):
+    def test_same_seed_movement(self, numberOfSteps = 100000):
         """
         2 Particles given the same seed should move identically
         We test that all positions of the two particles are identical
