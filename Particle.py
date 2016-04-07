@@ -6,18 +6,19 @@ Defines particle objects that are seeded at initialization
 and move around accordingly
 """
 import numpy as np
-from datetime import datetime
+import time
+from unittest import TestCase
 
 class Particle:
     """
     Defines particle objects that are seeded at initialization
 and move around accordingly
     """
-    def __init__(self, seed = datetime.now, x= 0, y = 0):
+    def __init__(self, seed = int(time.time()*10000), x= 0, y = 0):
         self.x = x
         self.y = y
-        self.RNG = np.random.RandomState(seed)
-    
+        self.RNG = np.random.seed(seed)
+
     def move(self, step_size = 1):
         """
         Moves in a random (seeded) direction with a distance of
@@ -33,6 +34,13 @@ and move around accordingly
         else:
             x -= step_size #left
 
+class test_Particle(TestCase):
+    """
+    Test Class for Particle.
+    This class only extends with test functions
+    """
+
+    
     def test_confined_movement():
         """
         Given n number of steps, the particles
@@ -40,12 +48,27 @@ and move around accordingly
         n = [10, 100, 1000]
         """
         n = [10, 100, 1000]
-        p = Particle()
-        for x in xrange(n[0]):
-            p.move()
-        p = Particle()
-        for x in xrange(n[0]):
-            p.move()
-        
-        
-        
+        testReturn = True
+        for numberOfSteps in n:
+            p = Particle()
+            for x in xrange(numberOfSteps):
+                p.move()
+            if(p.x > numberOfSteps or p.x < (-1 * numberOfSteps) or p.y > numberOfSteps or p.y < (-1 * numberOfSteps)):
+                testReturn = False
+        assert(testReturn)
+
+    def test_same_seed_movement(numberOfSteps = 100000):
+        """
+        2 Particles given the same seed should move identically
+        We test that all positions of the two particles are identical
+        to the numberOfSteps specified
+        """
+        p1 = Particle(1024901)
+        p2 = Particle(1024901)
+        testReturn = True
+        for x in xrange(numberOfSteps):
+            p1.move()
+            p2.move()
+            if(p1.x != p2.x or p1.y != p2.y):
+                testReturn = False
+        assert(testReturn)
