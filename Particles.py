@@ -29,7 +29,7 @@ class Particles:
         for(p in particles):
             p.move(step_size)
 
-    def plot():
+    def plot(self):
         """
         Plots all particles
         """
@@ -38,7 +38,7 @@ class Particles:
         plt.show()
         plot.clf()
 
-    def moves(N = 10, step_size = 1):
+    def moves(self, N = 10, step_size = 1):
         """
         Loops over move() and plot() function N times
         """
