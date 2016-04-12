@@ -13,7 +13,7 @@ Name: Austin Ayers
 Description: Framework over Object Particle, to plot and move each Particle
 
 """
-import Random as R
+import random as R
 import matplotlib.pyplot as plt
 
 class Particles:
