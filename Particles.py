@@ -15,6 +15,7 @@ Description: Framework over Object Particle, to plot and move each Particle
 """
 import random as R
 import matplotlib.pyplot as plt
+from unittest import TestCase
 
 class Particles:
     """
@@ -45,3 +46,6 @@ class Particles:
         for i in xrange(N):
             self.move(step_size)
             self.plot()
+
+class Test_Particles(TestCase):
+    def test(self):
