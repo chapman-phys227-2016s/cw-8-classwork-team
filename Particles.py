@@ -26,6 +26,8 @@ class Particles:
         particles is an array of type 'Particle'
         """
         self.particles = particles
+        self.np = len(particles)
+        self.step = 1
     def move(self, step_size = 1):
         """
         Translates all particles uniformly by step_size
@@ -37,10 +39,17 @@ class Particles:
         """
         Plots all particles
         """
+        xpositions = []
+        ypositions = []
         for p in self.particles:
-            plt.plot(p.x, p.y)
-        plt.show()
-        plot.clf()
+            xpositions.append(p.x)
+            ypositions.append(p.y)
+            plt.plot(xpostions, ypositions, 'ko',
+                     axis = [-100,100,-100,100],
+                     title = '%d particles after %d steps' %
+                         (np, step+1)
+                     savefig = 'tmp_%03d.pdf' % (step+1)
+
 
     def moves(self, N = 10, step_size = 1):
         """
