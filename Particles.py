@@ -26,7 +26,7 @@ class Particles:
         """
         Translates all particles uniformly by step_size
         """
-        for(p in particles):
+        for p in self.particles:
             p.move(step_size)
 
     def plot(self):
