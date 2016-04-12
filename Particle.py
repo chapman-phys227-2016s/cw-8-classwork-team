@@ -73,3 +73,21 @@ class test_Particle(TestCase):
             if(p1.x != p2.x or p1.y != p2.y):
                 testReturn = False
         assert(testReturn)
+        
+def test_Particle():
+    seed_time = datetime.now
+    movement_matrix = np.zeros((3, 6))
+    count = 0
+    while count <= 2:
+        particle = Particle(seed_time)
+        other_count = 0
+        while other_count <= 2:
+            particle.move()
+            movement_matrix[count, other_count] = particle.x
+            other_count = other_count + 1
+            movement_matrix[count, other_count] = particle.y
+            other_count = other_count + 1
+        count = count + 1
+    apt = (movement_matrix[1, :] == movement_matrix[2, :] and movement_matrix[2, :] == movement_matrix[3, :])
+    msg = 'Particle Function does not work.'
+    assert apt, msg
