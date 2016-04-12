@@ -13,7 +13,7 @@ Name: Austin Ayers
 Description: Framework over Object Particle, to plot and move each Particle
 
 """
-import Random as R
+import random as R
 import matplotlib.pyplot as plt
 
 class Particles:
@@ -26,14 +26,14 @@ class Particles:
         """
         Translates all particles uniformly by step_size
         """
-        for(p in particles):
+        for p in self.particles:
             p.move(step_size)
 
     def plot(self):
         """
         Plots all particles
         """
-        for(p in particles):
+        for p in self.particles:
             plt.plot(p.x, p.y)
         plt.show()
         plot.clf()
@@ -42,6 +42,6 @@ class Particles:
         """
         Loops over move() and plot() function N times
         """
-        for(i in xrange(N)):
+        for i in xrange(N):
             self.move(step_size)
             self.plot()
