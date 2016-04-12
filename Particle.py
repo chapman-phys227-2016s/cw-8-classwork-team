@@ -76,20 +76,20 @@ class test_Particle(TestCase):
                 testReturn = False
         assert(testReturn)
         
-def test_Particle():
-    seed_time = int(time.time()*10 % 10000)
-    movement_matrix = np.zeros((3, 6))
-    count = 0
-    while count <= 2:
-        particle = Particle(seed_time)
-        other_count = 0
-        while other_count <= 2:
-            particle.move()
-            movement_matrix[count, other_count] = particle.x
-            other_count = other_count + 1
-            movement_matrix[count, other_count] = particle.y
-            other_count = other_count + 1
-        count = count + 1
-    apt = np.all(movement_matrix[0, :] == movement_matrix[1, :]) and np.all(movement_matrix[0, :] == movement_matrix[2, :])
-    msg = 'Particle Function does not work.'
-    assert apt, msg
+    def test_Particle(self, ):
+        seed_time = int(time.time()*10 % 10000)
+        movement_matrix = np.zeros((3, 6))
+        count = 0
+        while count <= 2:
+            particle = Particle(seed_time)
+            other_count = 0
+            while other_count <= 2:
+                particle.move()
+                movement_matrix[count, other_count] = particle.x
+                other_count = other_count + 1
+                movement_matrix[count, other_count] = particle.y
+                other_count = other_count + 1
+            count = count + 1
+        apt = np.all(movement_matrix[0, :] == movement_matrix[1, :]) and np.all(movement_matrix[0, :] == movement_matrix[2, :])
+        msg = 'Particle Function does not work.'
+        assert apt, msg
