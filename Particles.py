@@ -33,7 +33,7 @@ class Particles:
         """
         Plots all particles
         """
-        for(p in particles):
+        for p in self.particles:
             plt.plot(p.x, p.y)
         plt.show()
         plot.clf()
@@ -42,6 +42,6 @@ class Particles:
         """
         Loops over move() and plot() function N times
         """
-        for(i in xrange(N)):
+        for i in xrange(N):
             self.move(step_size)
             self.plot()
