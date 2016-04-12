@@ -22,6 +22,9 @@ class Particles:
     Moves and plots objects of type 'Particle'
     """
     def __init__(self, particles):
+        """
+        particles is an array of type 'Particle'
+        """
         self.particles = particles
     def move(self, step_size = 1):
         """
