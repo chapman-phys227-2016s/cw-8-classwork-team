@@ -77,7 +77,7 @@ class test_Particle(TestCase):
                 testReturn = False
         assert(testReturn)
         
-    def test_Particle(self, ):
+    def test_Particle(self):
         seed_time = int(time.time()*10 % 10000)
         movement_matrix = np.zeros((3, 6))
         count = 0

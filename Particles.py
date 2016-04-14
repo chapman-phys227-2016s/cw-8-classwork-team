@@ -18,6 +18,9 @@ matplotlib.use('Agg')
 import random as R
 import matplotlib.pyplot as plt
 from unittest import TestCase
+import numpy as np
+import time
+from Particle import *
 
 
 class Particles:
@@ -80,5 +83,15 @@ class Particles:
             self.generate_frame()
 
 class Test_Particles(TestCase):
-    def test(self):
-        pass
+    def test_Particle(self):
+        """Makes sure that the particles with the same random seed move in the same manner."""
+        seed_time = int(time.time()*10 % 10000)
+        particle_list = [Particle(seed_time) for _ in xrange(3)]
+        particles = Particles(np.array(particle_list))
+        particles.move()
+        x_array = np.array([particles.particles[n].x for n in xrange(3)])
+        y_array = np.array([particles.particles[n].y for n in xrange(3)])
+        apt = ((x_array[0] == x_array).all() and (y_array[0] == y_array).all())
+        msg = 'Particles did not move in the same way'
+        assert apt, msg
+
