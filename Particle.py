@@ -19,7 +19,6 @@ and move around accordingly
     def __init__(self, seed = -1, x= 0, y = 0):
         if seed == -1:
             seed = random.randint(2, 1000000)
-        print seed
         self.x = x
         self.y = y
         self.RNG = np.random.RandomState(seed)
