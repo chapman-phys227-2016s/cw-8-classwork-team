@@ -7,6 +7,7 @@ and move around accordingly
 """
 import numpy as np
 import time
+import random
 from unittest import TestCase
 
 
@@ -15,7 +16,9 @@ class Particle:
     Defines particle objects that are seeded at initialization
 and move around accordingly
     """
-    def __init__(self, seed = int(time.time()*10 % 10000), x= 0, y = 0):
+    def __init__(self, seed = -1, x= 0, y = 0):
+        if seed == -1:
+            seed = random.randint(2, 1000000)
         print seed
         self.x = x
         self.y = y
