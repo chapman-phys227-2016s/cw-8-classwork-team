@@ -2,7 +2,7 @@
 
 **Author(s):** Michael Seaman, Taylor Patti, Austin Ayers, Chinmai Raman, Andrew Malfavon
 
-[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-8-YOURTEAM.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-8-YOURTEAM)
+[![Build Status](https://travis-ci.org/chapman-phys227-2016s/cw-8-classwork-team.svg?branch=master)](https://travis-ci.org/chapman-phys227-2016s/cw-8-classwork-team)
 
 **Due date:** 2016/04/12
 
