@@ -15,8 +15,10 @@ from Particles import Particles
 from Particle import Particle
 import sys
 
+def main():
 
-partics = Particles([ Particle() for i in xrange(int(sys.argv[1]))])
-partics.moves(int(sys.argv[2]))
+    if __name__ == "__main__": main()
+        partics = Particles([ Particle() for i in xrange(int(sys.argv[1]))])
+        partics.moves(int(sys.argv[2]))
 
 
