@@ -29,7 +29,7 @@ def random_walk_2D(np, ns, plot_step):
             elif direction == SOUTH:
                 ypositions[i] -= 1
             elif direction == EAST:
-                xpositions[i] = += 1
+                xpositions[i] += 1
             elif direction == WEST:
                 xpositions[i] -= 1
         #Plot just every plot_step steps
