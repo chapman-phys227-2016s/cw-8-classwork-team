@@ -34,11 +34,11 @@ def random_walk_2D(np, ns, plot_step):
                 xpositions[i] -= 1
         #Plot just every plot_step steps
         if ((step+1) % plot_step == 0):
-            plt.plot(xpostions, ypositions, 'ko',
-                     axis = [xymin, xymax, xymin, xymax],
-                     title = '%d particles after %d steps' %
-                         (np, step+1)
-                     savefig = 'tmp_%03d.pdf' % (step+1)
+            fig, ax = plt.subplots(nrows = 1, ncols = 1)
+            ax.plot(xpositions, ypositions, 'ko')
+            ax.set_ylim([xymin, xymax])
+            ax.set_xlim([xymin, xymax])
+            fig.savefig('tmp_%03d.png' % (self.step))
     return xpositions, ypositions
 
 np = int(sys.argv[1]) #number of particles
