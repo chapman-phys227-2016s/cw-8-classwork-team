@@ -41,7 +41,8 @@ def random_walk_2D(np, ns, plot_step):
             fig.savefig('tmp_%03d.png' % (self.step))
     return xpositions, ypositions
 
-np = int(sys.argv[1]) #number of particles
-ns = int(sys.argv[2]) #number of steps
-plot_step = int(sys.argv[3]) #plot every plot_step steps
-x, y = random_walk_2D(np, ns, plot_step)
+if __name__ == "__main__":
+    np = int(sys.argv[1]) #number of particles
+    ns = int(sys.argv[2]) #number of steps
+    plot_step = int(sys.argv[3]) #plot every plot_step steps
+    x, y = random_walk_2D(np, ns, plot_step)
