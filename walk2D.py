@@ -33,7 +33,7 @@ def random_walk_2D(np, ns, plot_step):
             elif direction == WEST:
                 xpositions[i] -= 1
         #Plot just every plot_step steps
-        if (step+1) % plot_step = 0
+        if ((step+1) % plot_step == 0):
             plt.plot(xpostions, ypositions, 'ko',
                      axis = [xymin, xymax, xymin, xymax],
                      title = '%d particles after %d steps' %
