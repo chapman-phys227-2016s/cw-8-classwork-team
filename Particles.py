@@ -94,4 +94,3 @@ class Test_Particles(TestCase):
         apt = ((x_array[0] == x_array).all() and (y_array[0] == y_array).all())
         msg = 'Particles did not move in the same way'
         assert apt, msg
-
